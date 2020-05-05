@@ -9,6 +9,7 @@ verify_ssl = true
 pygame = "*"
 pyopengl = "*"
 numpy = "*"
+pyopengl-accelerate = "*"
 
 [requires]
 python_version = "3.8"
