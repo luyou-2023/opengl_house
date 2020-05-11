@@ -4,12 +4,14 @@ import numpy as np
 
 
 class Camera:
+    rot_angle = 3.1415 / 2
+
     def __init__(self, eye: tuple, target: tuple, up: tuple):
         self.eye = np.array(eye, dtype=float)
         self.target = np.array(target, dtype=float)
         self.up = np.array(up, dtype=float)
 
-        self.eye_target_rate = 0.5
+        self.eye_target_rate = 2
         self.eye_move_rate = 0.5
 
     def set_look_at(self):
@@ -47,9 +49,18 @@ class Camera:
         self.eye[0] -= self.eye_move_rate
         self.target[0] -= self.eye_move_rate
 
-    def move_can(self, ahead):
-        # equação paramétrica
+    def orbital_rotation(self, left: bool = False):
+        eye_dist = math.sqrt(sum([math.pow(cord, 2) for cord in self.eye]))
+        if left:
+            self.rot_angle -= 0.02
+            self.eye[2] = eye_dist * math.sin(self.rot_angle)
+            self.eye[0] = eye_dist * math.cos(self.rot_angle)
+        else:
+            self.rot_angle += 0.02
+            self.eye[2] = eye_dist * math.sin(self.rot_angle)
+            self.eye[0] = eye_dist * math.cos(self.rot_angle)
 
+    def move_can(self, ahead):
         delta = self.eye_move_rate
         p0 = self.eye
         p1 = self.target

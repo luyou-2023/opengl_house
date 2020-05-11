@@ -49,3 +49,9 @@ class Controls:
 
     def look_left(self):
         self.camera.eye_look_left()
+
+    def orbital_control(self, button):
+        if button == 4:
+            self.camera.orbital_rotation()
+        elif button == 5:
+            self.camera.orbital_rotation(left=True)

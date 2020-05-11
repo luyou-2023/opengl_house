@@ -84,7 +84,5 @@ def draw_x():
 
 class X(BaseFurniture):
     def draw_on_scene(self):
-        glPushMatrix()
         glTranslatef(0, .4100000000000002, 0)
         draw_x()
-        glPopMatrix()
