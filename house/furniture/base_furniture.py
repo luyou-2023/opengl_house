@@ -2,6 +2,9 @@ from house.scene.textures import TextureLoader
 
 
 class BaseFurniture:
+    translate = (0, 0, 0)
+    scale = (1, 1, 1)
+
     def __init__(self, texture_loader: TextureLoader):
         self.texture_loader = texture_loader
 

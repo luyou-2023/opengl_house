@@ -1,4 +1,5 @@
 from OpenGL.GL import *
+from OpenGL.GLU import *
 
 
 class Lighting:
@@ -37,3 +38,21 @@ class Lighting:
         glEnable(GL_LIGHTING)
         # Habilita a luz de número 0
         glEnable(GL_LIGHT0)
+
+    def set_lighting_position(self):
+        """
+        Should be called every after look at at the main loop
+        to active light transformations
+
+        :return:
+        """
+        glLightfv(GL_LIGHT0, GL_POSITION, self.light_position)
+        # draw a sphere right on where light is, helps debug :)
+        glPushMatrix()
+        glColor3f(0, 0, 0)
+        glTranslatef(self.light_position[0], self.light_position[1], self.light_position[2])
+        q = gluNewQuadric()
+        gluQuadricDrawStyle(q, GLU_FILL)
+        gluQuadricNormals(q, GLU_SMOOTH)
+        gluSphere(q, .7, 50, 50)
+        glPopMatrix()

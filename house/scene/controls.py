@@ -14,7 +14,15 @@ class Controls:
         K_RIGHT: 'look_right',
         K_LEFT: 'look_left',
 
+        K_i: 'move_obj_up',
+        K_k: 'move_obj_down',
+        K_j: 'move_obj_left',
+        K_l: 'move_obj_right',
+        K_m: 'move_obj_frontwards',
+        K_n: 'move_obj_backwards',
     }
+
+    scene_objects = []
 
     def __init__(self, camera: Camera):
         self.camera = camera
@@ -24,7 +32,11 @@ class Controls:
             return
 
         func = self.__getattribute__(self.key_map[key])
-        func()
+
+        if key in [K_i, K_k, K_j, K_l, K_m, K_n]:
+            func(self.scene_objects)
+        else:
+            func()
 
     def move_frontwards(self):
         self.camera.eye_move_frontwards()
@@ -55,3 +67,27 @@ class Controls:
             self.camera.orbital_rotation()
         elif button == 5:
             self.camera.orbital_rotation(left=True)
+
+    def move_obj_up(self, objs):
+        for obj in objs:
+            obj.translate[1] += .5
+
+    def move_obj_down(self, objs):
+        for obj in objs:
+            obj.translate[1] -= .5
+
+    def move_obj_left(self, objs):
+        for obj in objs:
+            obj.translate[0] -= .5
+
+    def move_obj_right(self, objs):
+        for obj in objs:
+            obj.translate[0] += .5
+
+    def move_obj_frontwards(self, objs):
+        for obj in objs:
+            obj.translate[2] += .5
+
+    def move_obj_backwards(self, objs):
+        for obj in objs:
+            obj.translate[2] -= .5

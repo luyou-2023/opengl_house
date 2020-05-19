@@ -23,3 +23,5 @@ def draw_ground(ground_texture):
 
     glEnd()
     glPopMatrix()
+    # unbind texture to avoid printing it on others elements
+    glBindTexture(GL_TEXTURE_2D, 0)
