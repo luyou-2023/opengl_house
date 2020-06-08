@@ -135,3 +135,4 @@ class Armario(BaseFurniture):
         draw_doors()
         draw_push()
         draw_footers()
+        
