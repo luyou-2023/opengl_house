@@ -4,7 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-from house.furniture import X, Bed
+from house.furniture import X, Bed, Armario
 from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader
 import os
 
@@ -35,6 +35,7 @@ class Core:
         # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
         self.furnitures = [
             # X(self.texture_loader),
+            Armario(self.texture_loader),
             Bed(self.texture_loader)
         ]
 
