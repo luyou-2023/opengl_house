@@ -31,14 +31,6 @@ class Core:
 
         self.texture_loader = TextureLoader(os.path.join(self.base_resources_path, 'textures'))
 
-        # todo: maybe auto retrieve classes from furnitures module
-        # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
-        self.furnitures = [
-            # X(self.texture_loader),
-            Armario(self.texture_loader),
-            Bed(self.texture_loader)
-        ]
-
         pygame.init()
         display = (1600, 900)
         pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
@@ -49,9 +41,18 @@ class Core:
         glLoadIdentity()
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
         glEnable(GL_DEPTH_TEST)
+        glEnable(GL_TEXTURE_2D)
 
         # set perspective
         gluPerspective(45, (display[0] / display[1]), .1, 50.0)
+
+        # todo: maybe auto retrieve classes from furnitures module
+        # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
+        self.furnitures = [
+            # X(self.texture_loader),
+            Armario(self.texture_loader),
+            Bed(self.texture_loader)
+        ]
 
         self.camera = Camera(self.eye, self.target, self.up)
         self.controls = Controls(self.camera)
