@@ -5,7 +5,6 @@ from pygame.locals import *
 
 from OpenGL.GL import *
 from OpenGL.GLU import *
-import keyboard
 
 default_color = (1, 1, 1)
 
