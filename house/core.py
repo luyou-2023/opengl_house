@@ -4,7 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-from house.furniture import X, Bed, Armario
+from house.furniture import X, Bed, Armario, Fogao
 from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader
 import os
 
@@ -51,7 +51,8 @@ class Core:
         self.furnitures = [
             # X(self.texture_loader),
             Armario(self.texture_loader),
-            Bed(self.texture_loader)
+            Bed(self.texture_loader),
+            Fogao(self.texture_loader)
         ]
 
         self.camera = Camera(self.eye, self.target, self.up)
