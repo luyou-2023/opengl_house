@@ -4,8 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-from house.furniture import X, Bed, Armario, Fogao
-from house.furniture.cadeira_rd import CadeiraDr
+from house.furniture import X, Bed, Armario, Fogao, CadeiraDr
 from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader, HouseStructure
 import os
 
