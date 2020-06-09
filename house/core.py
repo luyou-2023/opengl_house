@@ -4,7 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-from house.furniture import X, Bed, Armario, Fogao
+from house.furniture import X, Bed, Armario, Fogao, CadeiraDr
 from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader, HouseStructure
 import os
 
@@ -52,7 +52,12 @@ class Core:
             # X(self.texture_loader),
             Armario(self.texture_loader),
             Bed(self.texture_loader),
-            Fogao(self.texture_loader)
+            Fogao(self.texture_loader),
+            CadeiraDr(self.texture_loader, 15, 0, -30, init_rotate_y=1, init_angle_rotate=90),  # cadeira no quarto
+            CadeiraDr(self.texture_loader, -50, 0, 5, init_rotate_y=1, init_angle_rotate=180),  # no cozinha virada pro quarto
+            CadeiraDr(self.texture_loader, -40, 0, 5, init_rotate_y=1, init_angle_rotate=180),  # no cozinha virada pro quarto
+            CadeiraDr(self.texture_loader, -30, 0, 5, init_rotate_y=1, init_angle_rotate=180),  # no cozinha virada pro quarto
+            CadeiraDr(self.texture_loader, 10, 0, -88)  # no cozinha virada pro foão e o armário
         ]
 
         self.camera = Camera(self.eye, self.target, self.up)

@@ -70,24 +70,24 @@ class Controls:
 
     def move_obj_up(self, objs):
         for obj in objs:
-            obj.translate[1] += .5
+            obj.translate[1] += .3
 
     def move_obj_down(self, objs):
         for obj in objs:
-            obj.translate[1] -= .5
+            obj.translate[1] -= .3
 
     def move_obj_left(self, objs):
         for obj in objs:
-            obj.translate[0] -= .5
+            obj.translate[0] -= .3
 
     def move_obj_right(self, objs):
         for obj in objs:
-            obj.translate[0] += .5
+            obj.translate[0] += .3
 
     def move_obj_frontwards(self, objs):
         for obj in objs:
-            obj.translate[2] += .5
+            obj.translate[2] += .3
 
     def move_obj_backwards(self, objs):
         for obj in objs:
-            obj.translate[2] -= .5
+            obj.translate[2] -= .3
