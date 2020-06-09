@@ -5,7 +5,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 from house.furniture import X, Bed, Armario, Fogao
-from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader
+from house.scene import Controls, Camera, Lighting, draw_ground, TextureLoader, HouseStructure
 import os
 
 
@@ -19,8 +19,8 @@ class Core:
     # light vars
     luz_ambiente = (0.4, 0.4, 0.4, 1.0)
     luz_difusa = (0.7, 0.7, 0.7, 1.0)
-    luz_especular = (1.0, 1.0, 1.0, 1.0) # cor da luz especular, 4 valor é transparencia
-    posicao_luz = (6, 10, 10, 1.)
+    luz_especular = (1.0, 1.0, 1.0, 1.0)  # cor da luz especular, 4 valor é transparencia
+    posicao_luz = (0, 10, 0, 1.)
     especularidade = (1.0, 1.0, 1.0, 1.0)
     espec_material = 50
 
@@ -44,7 +44,7 @@ class Core:
         glEnable(GL_TEXTURE_2D)
 
         # set perspective
-        gluPerspective(45, (display[0] / display[1]), .1, 50.0)
+        gluPerspective(60, (display[0] / display[1]), .1, 90.0)
 
         # todo: maybe auto retrieve classes from furnitures module
         # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
@@ -70,6 +70,8 @@ class Core:
 
         # ground texture
         self.ground_texture = self.texture_loader.load_texture('ground_texture.png')
+        # house structure
+        self.house_structure = HouseStructure(self.texture_loader)
 
     def main_loop(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -79,6 +81,8 @@ class Core:
         self.lighting.set_lighting_position()
 
         self.event_capture_loop()
+
+        self.house_structure.draw_structure()
 
         self.draw_furniture_loop()
 

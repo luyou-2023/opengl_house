@@ -1,4 +1,4 @@
-#Feito por Gabriel e Hudson
+# Feito por Gabriel e Hudson
 
 import numpy as np
 import pygame
@@ -66,6 +66,7 @@ normal5 = (1, 0, 0)  # X Positivo
 
 face6 = (2, 3, 6, 7)  # X Negativo
 normal6 = (-1, 0, 0)  # X Negativo
+
 
 # segments = np.array((
 #     ((0, 0.3, 0),(0, 0, 0)),
@@ -137,13 +138,13 @@ def retornaGradesDoFogao(texture=None):
 
 
 class Fogao(BaseFurniture):
-    translate = [-3, -1, -12]
-    scale = (1.5, 1.5, 1.5)
-    rotate = (90.0, 0, 1, 0 )
+    translate = [16, -2.6, -6]
+    scale = (1, 1, 1)
+    rotate = (270, 0, 1, 0)
 
     def __init__(self, texture_loader: TextureLoader):
         super().__init__(texture_loader)
-        
+
         self.fogaoTextura = [None, None, None, None, None, None, None, None]
         self.fogaoTextura[0] = self.texture_loader.load_texture('fogao-front.jpg')
         self.fogaoTextura[1] = self.texture_loader.load_texture('fogao-left-right.jpg')
@@ -156,9 +157,9 @@ class Fogao(BaseFurniture):
 
     def draw_on_scene(self):
         glScalef(*self.scale)
-        glRotatef(*self.rotate)
         glTranslate(*self.translate)
-        glColor3f(1,1,1)
+        glRotatef(*self.rotate)
+        glColor3f(1, 1, 1)
 
         glPushMatrix()
         glTranslatef(0, 0, 0.)  # Monta as Faces do Fogão

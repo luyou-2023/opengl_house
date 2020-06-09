@@ -120,12 +120,14 @@ def draw_mattress_base():
 
 
 class Bed(BaseFurniture):
-    translate = [0, -4, 0]
-    scale = (.7, .7, .7)
+    translate = [7, -4, -15]
+    scale = (.7, .5, .7)
+    rotate = (270, 0, 1, 0)
 
     def draw_on_scene(self):
-        glScalef(*self.scale)
         glTranslate(*self.translate)
+        glScalef(*self.scale)
+        glRotatef(*self.rotate)
         draw_front_down()
         draw_connection()
         draw_back_down()

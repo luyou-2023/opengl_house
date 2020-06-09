@@ -25,7 +25,6 @@ class TextureLoader:
         height = texture_surface.get_height()
 
         texture_id = glGenTextures(1)
-        print(__file__, texture_id)
         glBindTexture(GL_TEXTURE_2D, texture_id)
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
                      0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data)
