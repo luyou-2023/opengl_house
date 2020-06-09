@@ -35,3 +35,11 @@ pipenv shell
 # run the script
 python main.py
 ```
+
+# Contributors
+
+- [Renorram Brandão](https://github.com/renorram) - Bed and House structure
+- [Gabriel Ricarte](https://github.com/nazod) and Angelo Hudson - Stove
+- [Daniel Monteiro](https://github.com/DaniellSousa) and Rodrigo Ventini - Chairs
+- [Eduardo](https://github.com/eduardomb9) - TV
+- [Reginaldo](https://github.com/NaldoMS) - Kitchen Closet
