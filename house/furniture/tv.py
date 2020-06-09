@@ -122,10 +122,10 @@ def draw_screen(screen_texture):
     glBindTexture(GL_TEXTURE_2D, screen_texture)
 
     glBegin(GL_QUADS)
-    texIndexes = [(1, 0), (1, 1), (0, 1), (0, 0)]
+    texIndexes = [(0, 0), (1, 0), (1, 1), (0, 1)]
     for vertex, tex in zip(verticies, texIndexes):
-        glVertex3fv(vertex)
         glTexCoord2fv(tex)
+        glVertex3fv(vertex)
     glEnd()
 
 
