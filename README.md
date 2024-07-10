@@ -16,7 +16,7 @@ OpenGL house that has to be built for computer graphics class.
 Install dependencies:
 
 ```shell script
-pip install --user pygame numpy PyOpenGL PyOpenGL_accelerate
+pip install pygame numpy PyOpenGL PyOpenGL_accelerate
 ```
 
 Run the main script:
