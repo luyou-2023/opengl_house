@@ -26,7 +26,8 @@ python main.py
 ```
 
 ## Using PipEnv
-
+可运行@@@@@
+#
 Install [PipEnv](https://pipenv.pypa.io/en/latest/) then enter the pipenv shell and run the main script:
 
 ```shell script
