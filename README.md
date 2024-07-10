@@ -1,4 +1,5 @@
 # OpenGL House
+可运行@@@@@
 OpenGL house that has to be built for computer graphics class.
 
 # Requirements
@@ -26,7 +27,7 @@ python main.py
 ```
 
 ## Using PipEnv
-可运行@@@@@
+
 #
 Install [PipEnv](https://pipenv.pypa.io/en/latest/) then enter the pipenv shell and run the main script:
 
