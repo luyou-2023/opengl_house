@@ -1,0 +1,25 @@
+在绘制过程中，我们迭代每个面，设置面颜色，并绘制该面上的每个顶点。
+
+假设我们在绘制第一个面 (0, 1, 2, 3)：
+
+python
+复制代码
+for i, face in enumerate(faces):
+    glColor3fv(colors[i])  # 设置当前面的颜色
+    for vertex in face:
+        glVertex3fv(vertices[vertex])  # 绘制顶点
+face = (0, 1, 2, 3) 表示第一个面由 vertices 列表中的第 0, 1, 2, 3 个顶点组成。
+for vertex in face: 循环遍历这个面的每个顶点索引。
+当 vertex = 0 时，vertices[vertex] 就是 vertices[0]，即 (1, -1, -1)。
+当 vertex = 1 时，vertices[vertex] 就是 vertices[1]，即 (1, 1, -1)。
+当 vertex = 2 时，vertices[vertex] 就是 vertices[2]，即 (-1, 1, -1)。
+当 vertex = 3 时，vertices[vertex] 就是 vertices[3]，即 (-1, -1, -1)。
+所以，glVertex3fv(vertices[vertex]) 实际上依次调用了：
+
+python
+复制代码
+glVertex3fv((1, -1, -1))  # 顶点0
+glVertex3fv((1, 1, -1))   # 顶点1
+glVertex3fv((-1, 1, -1))  # 顶点2
+glVertex3fv((-1, -1, -1)) # 顶点3
+这段代码绘制了一个面的四个顶点。
