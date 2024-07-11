@@ -13,11 +13,12 @@ class Core:
     # 定义资源文件夹的基础路径
     base_resources_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'resources')
 
-    # 相机变量
+    # 相机变量 (x, y, z)
     eye = (0, 0, 10)  # 相机位置
     target = (0, 0, 0)  # 相机目标位置（看向哪里）
     up = (0, 1, 0)  # 相机的上方向
 
+    # 在计算机图形学中，光照模型通常使用一个四维向量来表示光的颜色和强度，其中前三个分量分别表示红色、绿色和蓝色（RGB）通道，第四个分量通常表示透明度或不透明度（alpha通道）。这个四维向量通常称为RGBA。
     # 光照变量
     luz_ambiente = (0.4, 0.4, 0.4, 1.0)  # 环境光颜色
     luz_difusa = (0.7, 0.7, 0.7, 1.0)  # 漫反射光颜色
@@ -32,7 +33,8 @@ class Core:
             if self.__getattribute__(key):
                 self.__setattr__(key, value)
 
-        # 初始化纹理加载器
+        # 初始化纹理加载器 texture 通常指的是应用到3D模型表面上的二维图像。纹理可以用来增加模型表面的细节和真实感，而不需要增加几何复杂度。
+        # 它从文件中读取图像数据并将其转换成可以在图形硬件（如GPU）上使用的格式。在OpenGL、DirectX或其他图形API中，加载的纹理会被应用到3D模型的表面上，从而在渲染时显示出图像细节。
         self.texture_loader = TextureLoader(os.path.join(self.base_resources_path, 'textures'))
 
         # 初始化 Pygame
